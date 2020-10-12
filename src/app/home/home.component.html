@@ -1,0 +1,51 @@
+<!--header-block-start-->
+<div class="row">
+    <div class="header">
+        <p id="title">Weather Check</p>
+    </div>
+</div>
+<!--/ header-block-end-->
+
+<!-- body-content-block-start-->
+<div class="row">
+    <!--city-details-block-start-->
+    <div class="container content-bg">
+        <div class="row search-bar">
+            <input type="text" [(ngModel)]="inputFromSearchBox" name="search_bar" placeholder="Search Location" (keyup.enter)="getCurrentWeather(inputFromSearchBox)">
+            <button class="btn btn-default search-bar-btn" type="button" (click)="getCurrentWeather(inputFromSearchBox)">
+                 <img src="\assets\images\icon\Search.png" alt="search" name="search-icon"></button>
+            <button class="btn btn-default search-bar-btn" type="button" (click)="onClickLocation()">
+                 <img src="\assets\images\icon\Location.png" alt="location" name="location-icon"></button>
+        </div>
+
+        <div class="row city-details" [hidden]="city_details_show">
+            <div class="col-8">
+                <div class="city-name">
+                    <span>Weather for {{city}}</span>
+                </div>
+                <div class="city-temp">
+                    <span>{{currentTemp}}°C</span>
+                </div>
+                <div class="city-text">
+                    <span>AND RISING</span>
+                </div>
+                <div class="city-weather">
+                    <span>{{weather}}</span>
+                </div>
+                <div class="city-wind">
+                    <span>Wind: {{wind}} m/s Moderate Breeze</span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="weather-icon">
+                   <!-- <img src="{{currentWeatherIcon}}"> -->
+                   <img src="\assets\images\icon\Rain_night.png">
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!--/ city-details-block-end-->
+</div>
+<!--/ body-content-block-end-->
+  
+  
