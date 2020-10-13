@@ -53,4 +53,8 @@ export class HomeComponent implements OnInit {
 
   } 
 
+  onClickLocation(){
+    console.log("Clicked on location..");
+  }
+
 }
