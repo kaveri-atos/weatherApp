@@ -1,3 +1,5 @@
+
+
 .header{
     position: absolute;     
     width: 100%;
@@ -15,35 +17,39 @@
 
 .content-bg {
     background-image: url("../../assets/images/background-image/Bg_Image_Mobile.png");
-    background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
     box-shadow: none;
-    margin-top: 90px;
-    position: absolute;     
+    margin-top: 5em;
+    position: relative;
     width: 100%;
-    //height: 50%;
   }
-
+.search-bar-btn
+{  
+    border: none;
+    padding: 0.3em 0.7em;
+}
 .search-bar{
     font-size: 15px;
     font-family: "Verdana"; 
     color: #8c8c8c;
     width: 100%;
-    margin-top: 15px;
-    margin-left: 35px;
-    margin-right: 35px;
-    //padding: 10px 10px 25px 10px;
+    margin: 1em 5em;
+  }
+  .search-bar-bg {
+    background-color: white;
+    height: 3.2em;
+    border-radius: 5px;
   }
 
 input[name=search_bar] {
-      height: 65px;
+      height: 3.2em;
       width: 80%;
       border: white;
   }
 
 .search-bar button {           
     background-color: white;
-    height: 65px;
+    height: 3.2em;
   }
 
 /*.search-bar button:hover{
@@ -52,14 +58,14 @@ input[name=search_bar] {
   }  */
 
 .city-details{
-  margin-left: 50px;
+  margin-left: 3.8em;
 }
 
 .city-name{
     font-size: 23px;
     font-family: "Verdana";
     color: white;
-    margin-top: 30px;
+    //margin-top: 30px;
 }
  
 .city-temp{
@@ -92,6 +98,58 @@ input[name=search_bar] {
 }
 
 .weather-icon{
-  margin-top: 30px;
-  margin-right: 35px;
+  margin-top: 2em;
+ }
+
+ .weather-Img{
+   height: 13em;
+   width:13em;
+ }
+
+ .weather-details-container{
+  //position: absolute;
+  margin: 1em 1em 1em 1.8em;
+  height: 40%;
+}
+
+.detail-desc-label {
+  font-size: 16px; 
+  text-align: center;
+  color: #0066a1;
+}
+.detail-data-label {
+  font-size: 23px;
+  text-align: center;
+  color: #0066a1;
+  padding-bottom: 5px;
+}
+
+
+.weather-title{
+  background-color: #0066a1;
+  position: absolute;     
+  width:96%;
+}
+
+.weather-details{
+  background-color: white;
+  position: absolute;
+  width: 96%;
+  height: 135px;
+  margin-top: 65px;
+  
+}
+
+.ele-space
+{
+  padding-right: 1em;
+}
+
+.weather-title-detail
+{
+  margin:0.5em 1em;
+}
+.wind-data
+{
+  padding-top: 1em;
 }
