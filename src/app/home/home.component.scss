@@ -1,155 +1,228 @@
-
-
+//Header block CSS start...
 .header{
-    position: absolute;     
-    width: 100%;
-    height: 90px;
-    text-align: center;
-    background-color: #0066a1;
-  }
+  position: absolute;     
+  width: 100%;
+  height: 90px;
+  text-align: center;
+  background-color: #0066a1;
+}
 
-#title{
-    font-size: 25px;
-    font-family: "Verdana" Regular;
-    color: white;
-    margin: 20px;
-  }
+#top-title{
+  font-size: 25px;
+  font-family: "Verdana";
+  color: white;
+  margin: 20px;
+}
+//Header block CSS end...
 
+//City Weather block CSS start...
 .content-bg {
-    background-image: url("../../assets/images/background-image/Bg_Image_Mobile.png");
-    background-position: bottom;
-    box-shadow: none;
-    margin-top: 5em;
-    position: relative;
-    width: 100%;
-  }
-.search-bar-btn
-{  
-    border: none;
-    padding: 0.3em 0.7em;
+  background-image: url("../../assets/images/background-image/Bg_Image_Mobile.png");
+  background-position: bottom;
+  box-shadow: none;
+  margin-top: 5.6em;
+  position: relative;
+  width: 100%;
+}
+
+//Search bar block CSS start...
+
+.search-bar-btn{  
+  border: none;
+  color: rgb(140, 140, 140);
+ // padding: 0.3em 0.7em;
 }
 .search-bar{
-    font-size: 15px;
-    font-family: "Verdana"; 
-    color: #8c8c8c;
-    width: 100%;
-    margin: 1em 5em;
-  }
-  .search-bar-bg {
-    background-color: white;
-    height: 3.2em;
-    border-radius: 5px;
-  }
+  font-size: 15px;
+  font-family: "Verdana"; 
+  width: 100%;
+  //margin: 1em 5em;
+  margin-top: 15px;
+  margin-right: 35px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+}
 
-input[name=search_bar] {
-      height: 3.2em;
-      width: 80%;
-      border: white;
-  }
+input[name=search_bar_text] {
+    height: 65px;
+    width: 86.5%;
+    border: white;
+    font-size: 15px;
+    font-family: "Verdana";
+    color: rgb(140, 140, 140);
+    padding: 1em 1em;
+}
 
 .search-bar button {           
-    background-color: white;
-    height: 3.2em;
-  }
+  background-color: white;
+  height: 65px;
+  padding: 1em 1em;
+}
 
 /*.search-bar button:hover{
-    background-color: rgb(160, 215, 233);
-    //transform: scale(1.3);
-  }  */
+  background-color: rgb(160, 215, 233);
+  //transform: scale(1.3);
+}  */
+
+//Search bar block CSS end...
+
+
+//city details
 
 .city-details{
-  margin-left: 3.8em;
+//margin-left: 3.8em;
+margin-top: 30px;
+margin-left: 50px;
 }
 
 .city-name{
-    font-size: 23px;
-    font-family: "Verdana";
-    color: white;
-    //margin-top: 30px;
+  font-size: 23px;
+  font-family: "Verdana";
+  color: white;
+  margin-bottom: 50px;
 }
- 
+
 .city-temp{
-    font-size: 53px;
-    font-family: "Verdana";
-    color: white;
-    margin-top: 50px;
+  font-size: 53px;
+  font-family: "Verdana";
+  color: white;
+  margin-bottom: 15px;
 }
 
 .city-text{
-    font-size: 14px;
-    font-family: "Verdana";
-    color: white;
-    margin-top: 15px;
+  font-size: 14px;
+  font-family: "Verdana";
+  color: white;
+  margin-bottom: 40px;
 }
 
 .city-weather{
-    font-size: 19px;
-    font-family: "Verdana";
-    font-weight: bold;
-    color: white;
-    margin-top: 40px;
+  font-size: 19px;
+  font-family: "Verdana";
+  font-weight: bold;
+  color: white;
 }
 
 .city-wind{
-    font-size: 14px;
-    font-family: "Verdana";
-    color: white;
-    margin-bottom: 20px;
+  font-size: 14px;
+  font-family: "Verdana";
+  color: white;
+  margin-bottom: 20px;
 }
 
 .weather-icon{
-  margin-top: 2em;
- }
-
- .weather-Img{
-   height: 13em;
-   width:13em;
- }
-
- .weather-details-container{
-  //position: absolute;
-  margin: 1em 1em 1em 1.8em;
-  height: 40%;
+//margin-top: 2em;
+margin-right: 35px;
 }
 
-.detail-desc-label {
-  font-size: 16px; 
-  text-align: center;
-  color: #0066a1;
-}
-.detail-data-label {
-  font-size: 23px;
-  text-align: center;
-  color: #0066a1;
-  padding-bottom: 5px;
+.weather-Img{
+ height: 13em;
+ width:13em;
 }
 
+//City Weather block CSS end...
+
+//Weather details block css started
+
+.weather-details-container{
+//position: absolute;
+//margin: 1em 1em 1em 1.8em;
+width: 100%;
+margin-top: 20px;
+margin-left: 35px;
+margin-right: 35px;
+margin-bottom: 15px;  
+}
 
 .weather-title{
-  background-color: #0066a1;
-  position: absolute;     
-  width:96%;
+font-size: 17px;
+font-family: "Verdana";
+color: white;
+background-color: #0066a1;
+position: absolute;
+height: 65px;     
+width:96%;
+}
+
+#sub-title{
+font-size: 25px;
+  font-family: "Verdana";
+  color: white;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .weather-details{
-  background-color: white;
-  position: absolute;
-  width: 96%;
-  height: 135px;
-  margin-top: 65px;
-  
+background-color: white;
+position: absolute;
+width: 96%;
+height: 135px;
+margin-top: 65px;  
 }
 
-.ele-space
-{
-  padding-right: 1em;
+.detail-desc-label {
+font-size: 16px;
+font-family: "Verdana"; 
+text-align: center;
+color: #0066a1;
+}
+.detail-data-label {
+font-size: 23px;
+font-family: "Verdana";
+text-align: center;
+color: #0066a1;
+padding-bottom: 5px;
 }
 
-.weather-title-detail
-{
-  margin:0.5em 1em;
+.ele-space{
+//padding-right: 1em;
+margin-right: 35px;
 }
-.wind-data
-{
-  padding-top: 1em;
+
+.wind-data{
+padding-top: 2em;
 }
+//Weather details block CSS ended...
+
+
+//Forecast block CSS started...
+
+.forecast-details-container{
+//margin: 12.5em 1em 1em 1.8em;
+width: 100%;
+margin-top: 200px;
+margin-left: 35px;
+margin-right: 35px;
+//margin-bottom: 15px;  
+}
+
+.forecast-title{
+font-size: 17px;
+font-family: "Verdana";
+color: white;
+background-color: #0066a1;
+position: absolute;
+height: 65px;     
+width:96%;
+}
+
+.forecast-details{
+background-color: white;
+position: absolute;
+width: 96%;
+height: 120px;
+margin-top: 65px;  
+}
+
+.daily-data{
+padding-top: 2em;
+}
+
+.forecast-graph{
+background-color: rgb(15, 148, 225);
+position: absolute;
+width: 96%; 
+height: 105px;
+margin-top: 11.5em;  
+}
+//Forecst block CSS ended...

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule } from '@angular/common/http'; 
-import {CurrentWeatherDataService} from  '../Services/current-weather-data.service';
+import {RepositoryService} from  '../Services/repository-service.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import {CurrentWeatherDataService} from  '../Services/current-weather-data.servi
     HttpClientModule
   ],
   providers: [
-    CurrentWeatherDataService
+    RepositoryService
   ],
   bootstrap: [AppComponent]
 }) 

@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: #8c8c8c2e !important;
-  }
+  background-color: rgb(231, 231, 231) !important;
+  //overflow-y: hidden;
+}
+
+// hides scrollbar but keeps functionality
+body::-webkit-scrollbar {
+  display: none;
+}

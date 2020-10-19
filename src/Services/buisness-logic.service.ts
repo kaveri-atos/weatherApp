@@ -21,7 +21,7 @@ export class BuisnessLogicService {
 
 
   public getWeatherBannerIconFromAssetFolder(mWeatherType: string,icon:string): string {
-
+debugger;
     switch (mWeatherType) {
       case "clear sky": {
         return "/assets/images/icon/clear_sky.png";
@@ -98,6 +98,19 @@ export class BuisnessLogicService {
 
   }
 
+  public getCurrentDayValue(responceString):JSON
+  {
+    var returnValue={city:"",currentTemp:"",weather:"",wind:"",humidity:"",currentWeatherIcon:""};
+    returnValue.city= JSON.parse(responceString).name+" , "+ JSON.parse(responceString).sys.country;
+    returnValue.currentTemp = (JSON.parse(responceString).main).temp;
+    returnValue.weather = (JSON.parse(responceString).weather)[0].description;
+    returnValue.wind= (JSON.parse(responceString).wind).speed;
+    returnValue.humidity= (JSON.parse(responceString).main).humidity + "%";
+    returnValue.currentWeatherIcon=this.getWeatherBannerIconFromAssetFolder(JSON.parse(responceString).weather[0].description,JSON.parse(responceString).weather[0].icon);
+    
+    return JSON.parse(JSON.stringify(returnValue))
+    
+  }
 
 
 }

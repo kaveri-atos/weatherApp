@@ -1,7 +1,7 @@
 <!--header-block-start-->
 <div class="row">
     <div class="header">
-        <p id="title">Weather Check</p>
+        <p id="top-title">Weather Check</p>
         <button class="menu-btn"></button>
     </div>
 </div>
@@ -11,9 +11,9 @@
 
 <div class="row">
     <!--city-details-block-start-->
-    <div class="content-bg">
+    <div class="container-fluid content-bg">
         <div class="row search-bar">
-            <input type="text" [(ngModel)]="inputFromSearchBox"  name="search_bar" placeholder="Search Location" (keyup.enter)="getCurrentWeather(inputFromSearchBox)"/>
+            <input type="text" [(ngModel)]="inputFromSearchBox"  name="search_bar_text" placeholder="Search Location" (keyup.enter)="getCurrentWeather(inputFromSearchBox)"/>
             <button class="search-bar-btn" type="button" (click)="getCurrentWeather(inputFromSearchBox)">
                  <img src="\assets\images\icon\Search.png" alt="search" name="search-icon"></button>
             <button class="search-bar-btn" type="button" (click)="onClickLocation()">
@@ -21,9 +21,9 @@
         </div>
 
         <div class="row city-details" [hidden]="city_details_show">
-            <div class="col-8">
+            <div class="col-xs-7 col-sm-6 col-lg-8">
                 <div class="city-name">
-                    <span>Weather for {{city | titlecase}}</span>
+                    <span>Weather for {{city | titlecase}}, India</span>
                 </div>
                 <div class="city-temp">
                     <span>{{currentTemp}}°C</span>
@@ -38,7 +38,7 @@
                     <span>Wind: {{wind}} m/s Moderate Breeze</span>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-xs-5 col-sm-6 col-lg-4">
                 <div class="weather-icon">
                    <!-- <img src="{{currentWeatherIcon}}"> -->
                    <img [src]="imageURL" class="weather-Img"> 
@@ -47,67 +47,73 @@
         </div>
     </div>
     <!--/ city-details-block-end-->
-     <!-- weather-details-block-start-->    
-     <div class="container weather-details-container" [hidden]="city_details_show">
-        <div class="row weather-title">
-            <p id="title" class="weather-title-detail">Details</p>
-        </div>
-        <div class="row weather-details justify-content-center">
 
-            <div class=" row col-md-4 wind-data justify-content-center">
+    <!-- weather-details-block-start-->    
+    <div class="container weather-details-container" >
+        <div class="row weather-title">
+            <p id="sub-title">Details</p>
+        </div>
+
+        <div class="row weather-details justify-content-center">
+            <div class="row col-xs-4 col-sm-4 col-lg-4 wind-data justify-content-center">
                 <div class="ele-space">
                     <img src="\assets\images\icon\Precipitation.png" />
                 </div>
                 <div>
-                <div class="detail-desc-label">
-                    <span id="data">Precipitation  </span>
-                  </div>
-                  <div class="detail-data-label">
-                    <span>{{precipitation}}%</span>
-                  </div>
+                    <div class="detail-desc-label">
+                        <span>Precipitation  </span>
+                    </div>
+                    <div class="detail-data-label">
+                        <span>{{precipitation}}%</span>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="col-md-4 precipitation-data">
-                <img src="\assets\images\icon\Precipitation.png" />
-                <span id="data">Precipitation  </span>
-                <span>{{precipitation}}</span>
-            </div> -->
            
-            <div class=" row col-md-4 wind-data justify-content-center">
+            <div class="row col-xs-4 col-sm-4 col-lg-4 wind-data justify-content-center">
                 <div class="ele-space">
                     <img src="\assets\images\icon\wind.png" />
                 </div>
                 <div>
-                <div class="detail-desc-label">
-                    <span id="data">Wind </span>
-                  </div>
-                  <div class="detail-data-label">
-                    <span>{{wind}}m/s</span>
-                  </div>
-                </div>
-                <!-- <span id="data">Wind </span>
-                <span>{{mWind}}m/s</span> -->
+                    <div class="detail-desc-label">
+                        <span id="data">Wind </span>
+                    </div>
+                    <div class="detail-data-label">
+                        <span>{{wind}}m/s</span>
+                    </div>
+                </div>            
             </div>
-            <div class=" row col-md-4 wind-data justify-content-center">
+
+            <div class="row col-xs-4 col-sm-4 col-lg-4 wind-data justify-content-center">
                 <div class="ele-space">
                     <img src="\assets\images\icon\humidity.png" />
                 </div>
                 <div>
-                <div class="detail-desc-label">
-                    <span id="data">Humidity </span>
-                  </div>
-                  <div class="detail-data-label">
-                    <span>{{humidity}}%</span>
-                  </div>
+                    <div class="detail-desc-label">
+                        <span id="data">Humidity </span>
+                    </div>
+                    <div class="detail-data-label">
+                        <span>{{humidity}}%</span>
+                    </div>
                 </div>
-            </div>
-            <!-- <div class="col-md-4 humidity-data">
-                <img src="\assets\images\icon\humidity.png" />
-                <span id="data">Humidity </span>
-                <span>{{humidity}}</span>
-            </div>                  -->
+            </div>                           
         </div>
-    </div>   
+    </div> 
+    <!--/ weather-details-block-end-->    
+    
+    <!--forecast-block-start-->
+    <div class="container forecast-details-container" >
+        <div class="row forecast-title">
+            <p id="sub-title">Forecast</p>
+        </div>
+
+        <div class="row forecast-details justify-content-center">
+            Day wise Forecast details            
+        </div>
+
+        <div class="row forecast-graph justify-content-center">
+            Forecast Graph
+        </div>
+    </div>
 
 </div>
 <!--/ body-content-block-end-->
