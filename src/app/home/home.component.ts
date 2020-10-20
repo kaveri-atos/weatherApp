@@ -67,7 +67,77 @@ export class HomeComponent implements OnInit {
    */
   humidity:string;
 
-  
+  /**
+ * Store 5 days Date
+ */
+weatherDate = [];
+
+/**
+ * Store 5 days Date
+ */
+dateForGraphRenderOnly = [];
+
+/**
+ * Store 5 days Date
+ */
+dateNameForGraphRenderOnly = [];
+
+/**
+ * Store 5 days Max Temperature
+ */  
+  dateTempMax = [];
+/**
+ * Store 5 days Min Temperature
+ */ 
+  dateTempMin = [];
+/**
+ * Store Max Temperature in next 5 days
+ */ 
+  maxTempof5DaysToGrphLimit=0;
+/**
+ * Store Min Temperature in next 5 days
+ */
+  minTempof5DaysToraphLimit=0;
+/**
+ * Value of delta for graph for resizing
+ */
+  mGraphMaxMinFromTempDelta=7;
+/**
+ * Store static value for vwetical scroll
+ */
+  days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+  /**
+ * Today In Date Count
+ */
+  dateInDay=0;
+/**
+ * Max Chart Graph
+ */
+  lineChartMax: any;
+/**
+ * Min Chart Graph
+ */  
+  lineChartMin: any;
+/**
+ * Background Chart Graph
+ */  
+  lineChartBckGround: any;
+
+/**
+ * Store five days icon
+ */   
+  fiveDaysWeatherIcon=[];
+
+/**
+ * Visible on Data / Invisible on No-Data
+ */
+backgroundLayoutVisiblity=false;
+/**
+ * Searchbar input character minimum limit
+ */
+mSearchBarInputLimit=2
+
+
 
 
 /**
@@ -86,7 +156,7 @@ export class HomeComponent implements OnInit {
  */
   async getCurrentWeather(cityName:string)
   { 
-    const mFiveDaysValue = await this.repositoryAPIService.getWeatherValueFiveDays(cityName);
+    const fiveDaysValue = await this.repositoryAPIService.getWeatherValueFiveDays(cityName);
 
     const currentWeatherData =await this.repositoryAPIService.getCurrentWeather(cityName);
     console.log("in home"+ currentWeatherData);    
@@ -101,36 +171,35 @@ export class HomeComponent implements OnInit {
         this.humidity = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).humidity;
         this.currentWeatherIcon=JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).currentWeatherIcon;
 
-     
-          
-      
-    
-  //   try {    
-  //       this.repositoryService.getCurrentWeather(cityName).subscribe((data)=>{
-  //       console.log(data);     
-  //       this.weatherData = (data);       
-  //       this.city_details_show = false; //show deatis div
-  //       this.city = this.inputFromSearchBox;
-  //       this.currentTemp = data['main'].temp;     
-  //       this.humidity=data['main'].humidity;   
-  //       this.currentWeatherDesc = data['weather'][0].description;
-  //       this.currentWeatherIcon= data['weather'][0].icon;
-  //       this.wind = data['wind'].speed;    
-  //       this.imageURL =this.businessLogic.getWeatherBannerIconFromAssetFolder(this.currentWeatherDesc,this.currentWeatherIcon);
-   
-  //   }); 
-  //    console.log("Clicked on Search button... ");        
-  //   console.log(this.imageURL);
-  // }
-  // catch(e){
-  //   this.city_details_show = true; //hide deatis div
-  //   console.log("Error" + e);
-  // }     
-
   } 
 
   onClickLocation(){
     console.log("Clicked on location..");
   }
+
+
+  /**
+ *  Reset all variable
+ */
+public resetVariable(){
+  this.backgroundLayoutVisiblity=false;
+  this.weatherDate = [];
+  this.dateForGraphRenderOnly = [];
+  this.dateNameForGraphRenderOnly = [];
+  this.dateTempMax = [];
+  this.dateTempMin = [];
+  this.maxTempof5DaysToGrphLimit=0;
+  this.minTempof5DaysToraphLimit=0;
+  this.city='';
+  this.currentTemp='';
+  this.weatherData=''; 
+  this.wind='';
+  this.humidity='';
+  this.currentWeatherIcon="";
+  this.fiveDaysWeatherIcon=[];
+  this.inputFromSearchBox = "";
+
+}
+
 
 }
