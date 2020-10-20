@@ -49,7 +49,7 @@ export class RepositoryService {
  */
 async getWeatherValueFiveDays(cityName:string) {  
 
-  const dataOfFiveDays = await this.httpClient.get(this.stringEnum.URLForcast + cityName+"&appid="+this.stringEnum.AppID)
+  const dataOfFiveDays = await this.httpClient.get(this.stringEnum.URLForcast + cityName+"&appid="+this.stringEnum.AppID+"&units=metric")
   .toPromise().then(data => {      
     return data
   }, err => {
