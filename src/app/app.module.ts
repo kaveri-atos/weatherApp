@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule } from '@angular/common/http'; 
 import {RepositoryService} from  '../Services/repository-service.service';
+import { BuisnessLogicService } from 'src/Services/buisness-logic.service';
+import { OverLapGraphForWeatherPredictionService } from 'src/Services/over-lap-graph-for-weather-prediction.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {RepositoryService} from  '../Services/repository-service.service';
     HttpClientModule
   ],
   providers: [
-    RepositoryService
+    RepositoryService,
+    BuisnessLogicService,
+    OverLapGraphForWeatherPredictionService
   ],
   bootstrap: [AppComponent]
 }) 

@@ -16,6 +16,6 @@ describe('BuisnessLogicService', () => {
 
    it('Check methods', () => {
     //const service: BuisnessLogicService = TestBed.get(BuisnessLogicService);
-    expect(service.getWeatherBannerIconFromAssetFolder("scattered clouds","03n")).toEqual("/assets/icon/scattered_clouds.png");
+    expect(service.getWeatherBannerIconFromAssetFolder("scattered clouds","03n")).toEqual("/assets/images/icon/scattered_clouds.png");
   });
 });
