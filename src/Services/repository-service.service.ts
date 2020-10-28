@@ -68,7 +68,7 @@ async getWeatherValueFiveDays(cityName:string) {
  * @param lon 
  */
 async getCurrentWeatherByLatLon(lat:number , lon:number){   
-  debugger;
+ 
   const weatherData = await this.httpClient.get(this.stringEnum.URLCurrent +"lat=" + lat +"&lon=" + lon +"&appid="+this.stringEnum.AppID + "&units=metric")
   .toPromise().then(data => {      
     return data

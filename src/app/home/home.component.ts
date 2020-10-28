@@ -252,7 +252,7 @@ stringValueEnum;
           this.maxTempof5DaysToGrphLimit=Math.max(...this.dateTempMax)+this.mGraphMaxMinFromTempDelta;
          this.minTempof5DaysToraphLimit=Math.min(...this.dateTempMin)-this.mGraphMaxMinFromTempDelta;
 
-         debugger;
+       
         this.overlapGraphService.showGraph(this.lineChartMax, this.lineCanvasMax, this.weatherDate,
           this.dateTempMax, this.stringValueEnum.Highest, 'rgba(225,217,104)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);

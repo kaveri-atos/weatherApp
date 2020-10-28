@@ -11,9 +11,7 @@ export class GetLocationLatLonService {
      * Async task for get lat,lon of user's location
      * @returns Promise<JSON>
      */
-    async getGeolocation():Promise<any> {
-       debugger;
-     
+    async getGeolocation():Promise<any> {     
        return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resp => {
   
