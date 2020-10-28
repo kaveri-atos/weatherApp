@@ -1,16 +1,25 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BuisnessLogicService } from 'src/Services/buisness-logic.service';
+import { OverLapGraphForWeatherPredictionService } from 'src/Services/over-lap-graph-for-weather-prediction.service';
+import { RepositoryService } from 'src/Services/repository-service.service';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
+ 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent
       ],
+      providers : [RepositoryService, BuisnessLogicService, OverLapGraphForWeatherPredictionService]
     }).compileComponents();
   });
 

@@ -4,7 +4,6 @@ import {  throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {StringValueEnum} from '../string-value-enum.enum';
 
-
 @Injectable({
   providedIn: 'root'
 })

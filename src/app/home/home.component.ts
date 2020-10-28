@@ -1,8 +1,15 @@
 import { Component, OnInit ,ViewChild, ElementRef } from '@angular/core';
+<<<<<<< HEAD
 import {StringValueEnum} from '../../string-value-enum.enum';
  import {OverLapGraphForWeatherPredictionService , GetLocationLatLonService,
    RepositoryService,BuisnessLogicService} from '../../Services';
 
+=======
+import {RepositoryService} from  '../../Services/repository-service.service';
+import {BuisnessLogicService} from '../../Services/buisness-logic.service';
+import {StringValueEnum} from '../../string-value-enum.enum';
+import { OverLapGraphForWeatherPredictionService } from 'src/Services/over-lap-graph-for-weather-prediction.service';
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
 
 @Component({
   selector: 'app-home',
@@ -27,7 +34,11 @@ export class HomeComponent implements OnInit {
  */
   @ViewChild('lineCanvasBckGround', { static: false }) lineCanvasBckGround :ElementRef<HTMLCanvasElement>;;
 
+<<<<<<< HEAD
 //#region Veriable declaration start
+=======
+
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
 /**
  *  Store data get from CurrentWeatherDataService
  */
@@ -50,7 +61,11 @@ export class HomeComponent implements OnInit {
   /**
    * city div show or hide
    */
+<<<<<<< HEAD
   city_details_show: boolean = true;
+=======
+  show_details: boolean = true;
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
 
   /**
    * 
@@ -158,7 +173,10 @@ mSearchBarInputLimit=2;
  */
 stringValueEnum;
 
+<<<<<<< HEAD
 //#endregion
+=======
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
 
 
 /**
@@ -167,6 +185,7 @@ stringValueEnum;
  */
   constructor(private repositoryAPIService : RepositoryService, 
     private buisnessLogicService:BuisnessLogicService,
+<<<<<<< HEAD
     private overlapGraphService:OverLapGraphForWeatherPredictionService,
     private getLocationLatLonService:GetLocationLatLonService) {
       this.stringValueEnum =   StringValueEnum;
@@ -198,6 +217,18 @@ stringValueEnum;
 
  /**
  * This function calls when click on serach button
+=======
+    private overlapGraphService:OverLapGraphForWeatherPredictionService) {
+      this.stringValueEnum =   StringValueEnum;
+     }
+
+  ngOnInit(): void {   
+    this.precipitation = "0";
+  }
+
+ /**
+ * 
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
  * @param cityName call weather api service
  */
   async getCurrentWeather(cityName:string)
@@ -210,7 +241,11 @@ stringValueEnum;
       //(JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.PleaseCheckNetworkConnection)
        //                                             :this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.LocationNotFound);      
       this.resetVariable();
+<<<<<<< HEAD
       this.city_details_show = true; //hide deatis div     
+=======
+      this.show_details = true; //hide deatis div     
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
     }
     else {     
         
@@ -219,7 +254,11 @@ stringValueEnum;
     
         var currentWeatherValueAfterParse = this.buisnessLogicService.getCurrentDayValue(currentWeatherData);
          console.log("filter data"+ currentWeatherValueAfterParse);  
+<<<<<<< HEAD
             this.city_details_show = false; //show deatis div
+=======
+            this.show_details = false; //show deatis div
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
             this.city = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).city;
             this.currentTemp = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).currentTemp;
             this.currentWeatherDesc = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).weather;
@@ -232,7 +271,11 @@ stringValueEnum;
         /// Insert Date into this.mDate Array
         this.weatherDate=this.buisnessLogicService.getNoOfDays(fiveDaysValue);
         this.dateForGraphRenderOnly=this.buisnessLogicService.formatDateForDateAndMonth(this.weatherDate);
+<<<<<<< HEAD
          this.dateForGraphRenderOnly=this.buisnessLogicService.getDayOfWeek(this.dateInDay);
+=======
+         this.dateNameForGraphRenderOnly=this.buisnessLogicService.getDayOfWeek(this.dateInDay);
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
         
 
 
@@ -252,7 +295,11 @@ stringValueEnum;
           this.maxTempof5DaysToGrphLimit=Math.max(...this.dateTempMax)+this.mGraphMaxMinFromTempDelta;
          this.minTempof5DaysToraphLimit=Math.min(...this.dateTempMin)-this.mGraphMaxMinFromTempDelta;
 
+<<<<<<< HEAD
        
+=======
+         
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
         this.overlapGraphService.showGraph(this.lineChartMax, this.lineCanvasMax, this.weatherDate,
           this.dateTempMax, this.stringValueEnum.Highest, 'rgba(225,217,104)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);
@@ -275,6 +322,7 @@ stringValueEnum;
 
   } 
 
+<<<<<<< HEAD
 
  
 
@@ -283,6 +331,10 @@ stringValueEnum;
  */
   onClickLocation(){
     this.getLatLon(); 
+=======
+  onClickLocation(){
+    console.log("Clicked on location..");
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
   }
 
 

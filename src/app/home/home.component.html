@@ -11,19 +11,23 @@
 
 <div class="row">
     <!--city-details-block-start-->
-    <div class="container-fluid content-bg">
+    <div class="container-fluid content-bg justify-content-center">
         <div class="row search-bar">
-            <input type="text" [(ngModel)]="inputFromSearchBox"  name="search_bar_text" placeholder="Search Location" (keyup.enter)="getCurrentWeather(inputFromSearchBox)"/>
-            <button class="search-bar-btn" type="button" (click)="getCurrentWeather(inputFromSearchBox)">
+            <div class="col-12">
+                <input type="text" [(ngModel)]="inputFromSearchBox"  name="search_bar_text" placeholder="Search Location" (keyup.enter)="getCurrentWeather(inputFromSearchBox)"/>
+                        
+                <button class="search-bar-btn" type="button" (click)="getCurrentWeather(inputFromSearchBox)">
                  <img src="\assets\images\icon\Search.png" alt="search" name="search-icon"></button>
-            <button class="search-bar-btn" type="button" (click)="onClickLocation()">
+            
+                 <button class="search-bar-btn" type="button" (click)="onClickLocation()">
                  <img src="\assets\images\icon\Location.png" alt="location" name="location-icon"></button>
+            </div>
         </div>
 
         <div class="row city-details" [hidden]="city_details_show">
-            <div class="col-xs-7 col-sm-6 col-lg-8">
+            <div class="col-8">
                 <div class="city-name">
-                    <span>Weather for {{city | titlecase}}, India</span>
+                    <span>Weather for {{city | titlecase}}</span>
                 </div>
                 <div class="city-temp">
                     <span>{{currentTemp}}°C</span>
@@ -32,16 +36,16 @@
                     <span>AND RISING</span>
                 </div>
                 <div class="city-weather">
-                    <span>{{currentWeatherDesc}}</span>
+                    <span>{{currentWeatherDesc | titlecase}}</span>
                 </div>
                 <div class="city-wind">
                     <span>Wind: {{wind}} m/s Moderate Breeze</span>
                 </div>
             </div>
-            <div class="col-xs-5 col-sm-6 col-lg-4">
+            <div class="col-4">
                 <div class="weather-icon">
-                   <!-- <img src="{{currentWeatherIcon}}"> -->
-                   <img [src]="imageURL" class="weather-Img"> 
+                    <img class="weather-Img" src="{{currentWeatherIcon}}"> 
+                   <!--<img [src]="imageURL" class="weather-Img"> -->
                 </div>
             </div> 
         </div>
@@ -49,50 +53,56 @@
     <!--/ city-details-block-end-->
 
     <!-- weather-details-block-start-->    
-    <div class="container weather-details-container" >
+    <div class="container weather-details-container" [hidden]="city_details_show">
         <div class="row weather-title">
             <p id="sub-title">Details</p>
         </div>
 
         <div class="row weather-details justify-content-center">
-            <div class="row col-xs-4 col-sm-4 col-lg-4 wind-data justify-content-center">
-                <div class="ele-space">
-                    <img src="\assets\images\icon\Precipitation.png" />
-                </div>
-                <div>
-                    <div class="detail-desc-label">
-                        <span>Precipitation  </span>
+            <div class="col-4  ">
+                <div class="row prec-data">
+                    <div class="icon-space">
+                        <img src="\assets\images\icon\Precipitation.png" />
                     </div>
-                    <div class="detail-data-label">
-                        <span>{{precipitation}}%</span>
+                    <div class="data-space">
+                        <div class="detail-desc-label">
+                            <span>Precipitation  </span>
+                        </div>
+                        <div class="detail-data-label">
+                            <span>{{precipitation}}%</span>
+                        </div>
                     </div>
                 </div>
             </div>
            
-            <div class="row col-xs-4 col-sm-4 col-lg-4 wind-data justify-content-center">
-                <div class="ele-space">
-                    <img src="\assets\images\icon\wind.png" />
-                </div>
-                <div>
-                    <div class="detail-desc-label">
-                        <span id="data">Wind </span>
+            <div class="col-4  justify-content-center">
+                <div class="row wind-data">
+                    <div class="icon-space">
+                        <img src="\assets\images\icon\wind.png" />
                     </div>
-                    <div class="detail-data-label">
-                        <span>{{wind}}m/s</span>
-                    </div>
-                </div>            
+                    <div class="data-space">
+                        <div class="detail-desc-label">
+                            <span id="data">Wind </span>
+                        </div>
+                        <div class="detail-data-label">
+                            <span>{{wind}}m/s</span>
+                        </div>
+                    </div>  
+                </div>          
             </div>
 
-            <div class="row col-xs-4 col-sm-4 col-lg-4 wind-data justify-content-center">
-                <div class="ele-space">
-                    <img src="\assets\images\icon\humidity.png" />
-                </div>
-                <div>
-                    <div class="detail-desc-label">
-                        <span id="data">Humidity </span>
+            <div class="col-4 justify-content-center">
+                <div class="row humi-data">
+                    <div class="icon-space">
+                        <img src="\assets\images\icon\humidity.png" />
                     </div>
-                    <div class="detail-data-label">
-                        <span>{{humidity}}%</span>
+                    <div class="data-space">
+                        <div class="detail-desc-label">
+                            <span id="data">Humidity </span>
+                        </div>
+                        <div class="detail-data-label">
+                            <span>{{humidity}}</span>
+                        </div>
                     </div>
                 </div>
             </div>                           
@@ -101,26 +111,34 @@
     <!--/ weather-details-block-end-->    
     
     <!--forecast-block-start-->
-    <div class="container forecast-details-container" >
+    <div class="container forecast-details-container" [hidden]="city_details_show">
         <div class="row forecast-title">
             <p id="sub-title">Forecast</p>
         </div>
 
-        <div class="row forecast-details justify-content-center">
-            Day wise Forecast details            
+        <div class="row forecast-details justify-content-center">    
+            <div class="col-2 daily-data" *ngFor="let icon of fiveDaysWeatherIcon; let i=index">               
+                <div class="forecast-day-label">
+                    <span>{{dateNameForGraphRenderOnly[i]}}</span>
+                    <span class="forecast-date-label-lg m-2">{{dateForGraphRenderOnly[i]}}</span>
+                </div>
+                  
+                <div class="forecast-icon-label">
+                    <img src="{{icon}}" />
+                </div>
+            </div>     
         </div>
 
-        <div class="row forecast-graph justify-content-center">
-           
+        <div class="row forecast-graph justify-content-center">           
             <div class="graph-bg">
                 <canvas #lineCanvasBckGround></canvas>
-              </div>
-              <div class="min-point">
+            </div>
+            <div class="min-point">
                 <canvas #lineCanvasMin></canvas>
-              </div>
-              <div class="max-point">
+            </div>
+            <div class="max-point">
                 <canvas #lineCanvasMax></canvas>
-              </div>
+            </div>
         </div>
     </div>
     

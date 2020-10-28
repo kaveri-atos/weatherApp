@@ -107,15 +107,24 @@ export class BuisnessLogicService {
   switch (weatherType) {
    
     case "01d": {
+<<<<<<< HEAD
       return "../../assets/icon/01d.png";
       break;
     }
     case "01n": {
       return "../../assets/icon/01n.png";
+=======
+      return "/assets/images/icon/01d.png";
+      break;
+    }
+    case "01n": {
+      return "/assets/images/icon/01n.png";
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
       break;
     }
 
     case "02d": {
+<<<<<<< HEAD
       return "../../assets/icon/02d.png";
       break;
     }
@@ -125,10 +134,22 @@ export class BuisnessLogicService {
     }
     case "03d": {
       return "../../assets/icon/03d.png";
+=======
+      return "/assets/images/icon/02d.png";
+      break;
+    }
+    case "02n": {
+      return "/assets/images/icon/02n.png";
+      break;
+    }
+    case "03d": {
+      return "/assets/images/icon/03d.png";
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
       break;
     }
 
     case "04d": {
+<<<<<<< HEAD
       return "../../assets/icon/04d.png";
       break;
     }
@@ -158,6 +179,37 @@ export class BuisnessLogicService {
     }
     default: {
       return "../../assets/icon/01d.png";
+=======
+      return "/assets/images/icon/04d.png";
+      break;
+    }
+    case "09d": {
+      return "/assets/images/icon/09d.png";
+      break;
+    }
+    case "10d": {
+      return "/assets/images/icon/10d.png";
+      break;
+    }
+    case "10n": {
+      return "/assets/images/icon/10n.png";
+      break;
+    }
+    case "11d": {
+      return "/assets/images/icon/11d.png";
+      break;
+    }
+    case "13d": {
+      return "/assets/images/icon/13d.png";
+      break;
+    }
+    case "50d": {
+      return "/assets/images/icon/50d.png";
+      break;
+    }
+    default: {
+      return "/assets/images/icon/01d.png";
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
       break;
     }
   }
@@ -178,7 +230,11 @@ export class BuisnessLogicService {
     
   }
 
+<<<<<<< HEAD
     /**
+=======
+  /**
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
  * Get Occurance of date
  * @param fiveDaysValue Json value
  *  @returns Occurance of date
@@ -203,6 +259,10 @@ public getDayOfWeek(dateInDay){
  var dayNames = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
  formatedDate.push("Today");
  let k=dateInDay+1;
+<<<<<<< HEAD
+=======
+ //let k = new Date();
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
   for (let i=0;i<6;i++){
       if(k==7){
           k=0;
@@ -290,6 +350,7 @@ public getFiveDaysValueInFormat(weatherDate,fiveDaysValue){
         return totlReturn;
 }
 
+<<<<<<< HEAD
 /**
  * return Cityname
  * @param responceString 
@@ -303,4 +364,6 @@ public getCurrentUserCity(responceString):string
     
   }
 
+=======
+>>>>>>> 0a92666634106c1ee4016bf1b97031b9b496de04
 }

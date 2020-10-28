@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RepositoryService } from '../../Services/repository-service.service';
 import { HomeComponent } from './home.component';
+import { HttpClientModule } from '@angular/common/http'
+import { BuisnessLogicService } from 'src/Services/buisness-logic.service';
+import { OverLapGraphForWeatherPredictionService } from 'src/Services/over-lap-graph-for-weather-prediction.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +11,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [HttpClientModule],
+      declarations: [ HomeComponent ],
+      providers : [RepositoryService, BuisnessLogicService, OverLapGraphForWeatherPredictionService]
     })
     .compileComponents();
   });

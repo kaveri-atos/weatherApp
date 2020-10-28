@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {HttpClient,HttpErrorResponse} from '@angular/common/http';
+import {HttpClient,HttpErrorResponse,HttpClientModule} from '@angular/common/http';
 import { RepositoryService } from './repository-service.service';
 
 describe('RepositoryService', () => {
@@ -7,6 +7,7 @@ describe('RepositoryService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule ({
+      imports: [HttpClientModule],
       providers: [
        HttpClient,
        HttpErrorResponse
