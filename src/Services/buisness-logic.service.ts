@@ -107,57 +107,57 @@ export class BuisnessLogicService {
   switch (weatherType) {
    
     case "01d": {
-      return "../../assets/icon/01d.png";
+      return "/assets/images/icon/01d.png";
       break;
     }
     case "01n": {
-      return "../../assets/icon/01n.png";
+      return "/assets/images/icon/01n.png";
       break;
     }
 
     case "02d": {
-      return "../../assets/icon/02d.png";
+      return "/assets/images/icon/02d.png";
       break;
     }
     case "02n": {
-      return "../../assets/icon/02n.png";
+      return "/assets/images/icon/02n.png";
       break;
     }
     case "03d": {
-      return "../../assets/icon/03d.png";
+      return "/assets/images/icon/03d.png";
       break;
     }
 
     case "04d": {
-      return "../../assets/icon/04d.png";
+      return "/assets/images/icon/04d.png";
       break;
     }
     case "09d": {
-      return "../../assets/icon/09d.png";
+      return "/assets/images/icon/09d.png";
       break;
     }
     case "10d": {
-      return "../../assets/icon/10d.png";
+      return "/assets/images/icon/10d.png";
       break;
     }
     case "10n": {
-      return "../../assets/icon/10n.png";
+      return "/assets/images/icon/10n.png";
       break;
     }
     case "11d": {
-      return "../../assets/icon/11d.png";
+      return "/assets/images/icon/11d.png";
       break;
     }
     case "13d": {
-      return "../../assets/icon/13d.png";
+      return "/assets/images/icon/13d.png";
       break;
     }
     case "50d": {
-      return "../../assets/icon/50d.png";
+      return "/assets/images/icon/50d.png";
       break;
     }
     default: {
-      return "../../assets/icon/01d.png";
+      return "/assets/images/icon/01d.png";
       break;
     }
   }
@@ -203,6 +203,7 @@ public getDayOfWeek(dateInDay){
  var dayNames = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
  formatedDate.push("Today");
  let k=dateInDay+1;
+ //let k = new Date();
   for (let i=0;i<6;i++){
       if(k==7){
           k=0;

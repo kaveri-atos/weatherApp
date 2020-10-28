@@ -20,7 +20,7 @@ export class OverLapGraphForWeatherPredictionService {
  * @param yAxisMax Minimum temprature of graph
  */
 public showGraph(lineChart,lineCanvas,weatherDate,dateTemp,label,color,yAxisMin,yAxisMax) {
-  debugger;
+  
   var nativele = lineCanvas.nativeElement;
   
   lineChart = new Chart(lineCanvas.nativeElement,

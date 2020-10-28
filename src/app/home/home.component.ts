@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   /**
    * city div show or hide
    */
-  city_details_show: boolean = true;
+  show_details: boolean = true;
 
   /**
    * 
@@ -188,7 +188,7 @@ stringValueEnum;
       //(JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.PleaseCheckNetworkConnection)
        //                                             :this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.LocationNotFound);      
       this.resetVariable();
-      this.city_details_show = true; //hide deatis div     
+      this.show_details = true; //hide deatis div     
     }
     else {     
         
@@ -197,7 +197,7 @@ stringValueEnum;
     
         var currentWeatherValueAfterParse = this.buisnessLogicService.getCurrentDayValue(currentWeatherData);
          console.log("filter data"+ currentWeatherValueAfterParse);  
-            this.city_details_show = false; //show deatis div
+            this.show_details = false; //show deatis div
             this.city = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).city;
             this.currentTemp = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).currentTemp;
             this.currentWeatherDesc = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).weather;
@@ -210,7 +210,7 @@ stringValueEnum;
         /// Insert Date into this.mDate Array
         this.weatherDate=this.buisnessLogicService.getNoOfDays(fiveDaysValue);
         this.dateForGraphRenderOnly=this.buisnessLogicService.formatDateForDateAndMonth(this.weatherDate);
-         this.dateForGraphRenderOnly=this.buisnessLogicService.getDayOfWeek(this.dateInDay);
+         this.dateNameForGraphRenderOnly=this.buisnessLogicService.getDayOfWeek(this.dateInDay);
         
 
 
@@ -230,7 +230,7 @@ stringValueEnum;
           this.maxTempof5DaysToGrphLimit=Math.max(...this.dateTempMax)+this.mGraphMaxMinFromTempDelta;
          this.minTempof5DaysToraphLimit=Math.min(...this.dateTempMin)-this.mGraphMaxMinFromTempDelta;
 
-         debugger;
+         
         this.overlapGraphService.showGraph(this.lineChartMax, this.lineCanvasMax, this.weatherDate,
           this.dateTempMax, this.stringValueEnum.Highest, 'rgba(225,217,104)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);
