@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
  */
   @ViewChild('lineCanvasBckGround', { static: false }) lineCanvasBckGround :ElementRef<HTMLCanvasElement>;;
 
-//#region Veriable declaration start
+//#region Veriable declaration start 
 /**
  *  Store data get from CurrentWeatherDataService
  */
@@ -163,7 +163,10 @@ stringValueEnum;
 
 /**
  * 
- * @param repositoryService inject CurrentWeatherDataService into constuctor
+ * @param repositoryAPIService 
+ * @param buisnessLogicService 
+ * @param overlapGraphService 
+ * @param getLocationLatLonService 
  */
   constructor(private repositoryAPIService : RepositoryService, 
     private buisnessLogicService:BuisnessLogicService,
@@ -210,6 +213,7 @@ stringValueEnum;
       //(JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.PleaseCheckNetworkConnection)
        //                                             :this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.LocationNotFound);      
       this.resetVariable();
+
       this.city_details_show = true; //hide deatis div     
     }
     else {     
@@ -232,9 +236,7 @@ stringValueEnum;
         /// Insert Date into this.mDate Array
         this.weatherDate=this.buisnessLogicService.getNoOfDays(fiveDaysValue);
         this.dateForGraphRenderOnly=this.buisnessLogicService.formatDateForDateAndMonth(this.weatherDate);
-         this.dateForGraphRenderOnly=this.buisnessLogicService.getDayOfWeek(this.dateInDay);
-        
-
+         this.dateForGraphRenderOnly=this.buisnessLogicService.getDayOfWeek(this.dateInDay);      
 
         this.dateForGraphRenderOnly=[]
         var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',

@@ -25,74 +25,74 @@ export class BuisnessLogicService {
     switch (mWeatherType) {
       case "clear sky": {
         return "/assets/images/icon/clear_sky.png";
-        break;
+        //break;
       }
 
       case "few clouds": {
         return "/assets/images/icon/few_clouds.png";
-        break;
+        //break;
       }
       case "few clouds night": {
         return "/assets/images/icon/Few_Clouds_night.png";
-        break;
+        //break;
       }
 
       case "scattered clouds": {
         return "/assets/images/icon/scattered_clouds.png";
-        break;
+        //break;
       }
 
       case "broken clouds": {
         return "/assets/images/icon/broken_clouds.png";
-        break;
+        //break;
       }
       case "shower rain": {
         return "/assets/images/icon/shower_rain.png";
-        break;
+        //break;
       }
       case "rain": {
         return "/assets/images/icon/rain.png";
-        break;
+        //break;
       }
       case "rain night": {
         return "/assets/images/icon/Rain_night.png";
-        break;
+        //break;
       }
 
       case "shower rain": {
         return "/assets/images/icon/shower_rain.png";
-        break;
+        //break;
       }
       case "snow": {
         return "/assets/images/icon/snow.png";
-        break;
+        //break;
       }
 
       case "mist": {
         return "/assets/images/icon/mist.png";
-        break;
+        //break;
       }
       case "thunderstorm": {
         return "/assets/images/icon/thunderstorm.png";
-        break;
+        //break;
       }
       case "cleat sky night": {
         return "/assets/images/icon/cleat_sky_night.png";
-        break;
+        //break;
       }
       case "few clouds night": {
         return "/assets/images/icon/few-Clouds_night.png";
-        break;
+        //break;
       }
       case "rain night": {
         return "/assets/images/icon/rain_night.png";
-        break;
+        //break;
       }
 
 
       default: {
         return "/assets/images/icon/"+icon+".png";
-        break;
+        //break;
       }
     }
 
@@ -108,57 +108,57 @@ export class BuisnessLogicService {
    
     case "01d": {
       return "/assets/images/icon/01d.png";
-      break;
+      //break;
     }
     case "01n": {
       return "/assets/images/icon/01n.png";
-      break;
+      //break;
     }
 
     case "02d": {
       return "/assets/images/icon/02d.png";
-      break;
+      //break;
     }
     case "02n": {
       return "/assets/images/icon/02n.png";
-      break;
+      //break;
     }
     case "03d": {
       return "/assets/images/icon/03d.png";
-      break;
+      //break;
     }
 
     case "04d": {
       return "/assets/images/icon/04d.png";
-      break;
+      //break;
     }
     case "09d": {
       return "/assets/images/icon/09d.png";
-      break;
+      //break;
     }
     case "10d": {
       return "/assets/images/icon/10d.png";
-      break;
+      //break;
     }
     case "10n": {
       return "/assets/images/icon/10n.png";
-      break;
+      //break;
     }
     case "11d": {
       return "/assets/images/icon/11d.png";
-      break;
+      //break;
     }
     case "13d": {
       return "/assets/images/icon/13d.png";
-      break;
+      //break;
     }
     case "50d": {
       return "/assets/images/icon/50d.png";
-      break;
+      //break;
     }
     default: {
       return "/assets/images/icon/01d.png";
-      break;
+      //break;
     }
   }
 
