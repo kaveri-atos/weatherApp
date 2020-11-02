@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {StringValueEnum} from '../string-value-enum.enum';
+import {LoggerService} from './logger.service'
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class BuisnessLogicService {
  * Declare url for image fetch from server
  */
   url:string;
-  constructor() { 
+  constructor(private logger:LoggerService) { 
     this.stringEnum=StringValueEnum;
     this.url=this.stringEnum.WEATHERICONURL;
   }
@@ -186,9 +187,9 @@ export class BuisnessLogicService {
   public getNoOfDays(fiveDaysValue){
     var weatherDate = [];
     for (let i = 0; i < JSON.parse(fiveDaysValue).list.length; i++) {
-      console.log(JSON.parse(fiveDaysValue).list[i]);
+      this.logger.log(JSON.parse(fiveDaysValue).list[i]);
       var weatherDateAfterAplit = (JSON.parse(fiveDaysValue).list[i].dt_txt).split(" ")[0];   
-      weatherDate.indexOf(weatherDateAfterAplit) === -1 ? weatherDate.push(weatherDateAfterAplit) : console.log();
+      weatherDate.indexOf(weatherDateAfterAplit) === -1 ? weatherDate.push(weatherDateAfterAplit) : this.logger.log('');
     }
     return weatherDate;
   }
@@ -245,7 +246,7 @@ public getFiveDaysValueInFormat(weatherDate,fiveDaysValue){
   var totlReturn=[];
         /////// getHigh Log Temp Of Each Day /////
         for (let i = 0; i < weatherDate.length; i++) {
-          console.log(weatherDate[i]);
+          this.logger.log(weatherDate[i]);
 
           var heigh = 0;
           var low = 0;
@@ -278,7 +279,7 @@ public getFiveDaysValueInFormat(weatherDate,fiveDaysValue){
           dateTempMin.push(Math.floor(low));
           fiveDaysWeatherIcon.push(weatherIcon);
 
-          // console.log(this.mTemperatureConverterService.kelvinToCelcius(heigh)
+          // this.logger.log(this.mTemperatureConverterService.kelvinToCelcius(heigh)
           //   + "     " + this.mTemperatureConverterService.kelvinToCelcius(low));
 
 

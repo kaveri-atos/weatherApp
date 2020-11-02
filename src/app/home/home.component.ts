@@ -1,7 +1,7 @@
 import { Component, OnInit ,ViewChild, ElementRef } from '@angular/core';
 import {StringValueEnum} from '../../string-value-enum.enum';
  import {OverLapGraphForWeatherPredictionService , GetLocationLatLonService,
-   RepositoryService,BuisnessLogicService} from '../../Services';
+   RepositoryService,BuisnessLogicService , LoggerService} from '../../Services';
 
 
 @Component({
@@ -171,7 +171,8 @@ stringValueEnum;
   constructor(private repositoryAPIService : RepositoryService, 
     private buisnessLogicService:BuisnessLogicService,
     private overlapGraphService:OverLapGraphForWeatherPredictionService,
-    private getLocationLatLonService:GetLocationLatLonService) {
+    private getLocationLatLonService:GetLocationLatLonService,
+    private logger:LoggerService) {
       this.stringValueEnum =   StringValueEnum;
      this.getLatLon();          
      }
@@ -188,7 +189,7 @@ stringValueEnum;
 
     const valueFromLocationService= await this.getLocationLatLonService.getGeolocation();
 
-    console.log("value coords "+JSON.parse(JSON.stringify(valueFromLocationService)).lat);
+    this.logger.log("value coords "+JSON.parse(JSON.stringify(valueFromLocationService)).lat);
     if(JSON.parse(JSON.stringify(valueFromLocationService)).err!==this.stringValueEnum.Error) 
     {
       const userWeatherData = await this.repositoryAPIService.getCurrentWeatherByLatLon(Number(JSON.parse(JSON.stringify(valueFromLocationService)).lat),Number(JSON.parse(JSON.stringify(valueFromLocationService)).lng));
@@ -207,7 +208,7 @@ stringValueEnum;
   { 
     const fiveDaysValue = await this.repositoryAPIService.getWeatherValueFiveDays(cityName);
 
-    console.log(this.stringValueEnum.UnknownError);
+    this.logger.log(this.stringValueEnum.UnknownError);
     if (JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError || JSON.parse(fiveDaysValue) == this.stringValueEnum.NotFound ) {
    
       //(JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.PleaseCheckNetworkConnection)
@@ -219,10 +220,10 @@ stringValueEnum;
     else {     
         
         const currentWeatherData =await this.repositoryAPIService.getCurrentWeather(cityName);
-        console.log("in home"+ currentWeatherData);    
+        this.logger.log("in home"+ currentWeatherData);    
     
         var currentWeatherValueAfterParse = this.buisnessLogicService.getCurrentDayValue(currentWeatherData);
-         console.log("filter data"+ currentWeatherValueAfterParse);  
+        this.logger.log("filter data"+ currentWeatherValueAfterParse);  
             this.city_details_show = false; //show deatis div
             this.city = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).city;
             this.currentTemp = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).currentTemp;
@@ -250,7 +251,7 @@ stringValueEnum;
         this.dateTempMin=getResultAfterFormating[1];
         this.fiveDaysWeatherIcon=getResultAfterFormating[2];
 
-        console.log("Graph Calling");
+        this.logger.log("Graph Calling");
           this.maxTempof5DaysToGrphLimit=Math.max(...this.dateTempMax)+this.mGraphMaxMinFromTempDelta;
          this.minTempof5DaysToraphLimit=Math.min(...this.dateTempMin)-this.mGraphMaxMinFromTempDelta;
 
@@ -270,7 +271,7 @@ stringValueEnum;
                '', 'rgba(15,148,225)',this.minTempof5DaysToraphLimit,
                this.maxTempof5DaysToGrphLimit);
 
-          console.log(Math.max(...this.dateTempMax)+"   "+Math.min(...this.dateTempMin))
+               this.logger.log(Math.max(...this.dateTempMax)+"   "+Math.min(...this.dateTempMin))
 
       
     }
