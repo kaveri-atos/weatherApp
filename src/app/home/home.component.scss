@@ -279,17 +279,19 @@ margin-top: 11.5em;
 
 
 //city details block for mobile screen start
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 1024px) {
 
   .search-bar{
     font-size: 15px;   
+    width: 100%;
     //margin: 1em 5em;
     margin-top: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
+    // margin-right: 10px;
+    // margin-left: 10px;
+    text-align:center;
   }
   input[name=search_bar_text] {
-        width: 70%;
+       width: 60%;
         height: 45px;
   }
   .search-bar-btn{  
@@ -304,14 +306,14 @@ margin-top: 11.5em;
   }
   .city-details{
     //margin-left: 3.8em;   
-    margin-left: 25px;
+    margin-left: 10px;
   }
   .city-name{
       font-size: 23px;
       margin-bottom: 40px;
   }    
   .city-temp{
-      font-size: 53px;
+      font-size: 45px;
       margin-bottom: 12px;
     }
     

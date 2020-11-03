@@ -25,30 +25,30 @@ export class BuisnessLogicService {
 
     switch (mWeatherType) {
       case "clear sky": {
-        return "/assets/images/icon/clear_sky.png";
+        return "/assets/images/icon/Clear-sky.png";
         //break;
       }
 
       case "few clouds": {
-        return "/assets/images/icon/few_clouds.png";
+        return "/assets/images/icon/Few-Clouds.png";
         //break;
       }
       case "few clouds night": {
-        return "/assets/images/icon/Few_Clouds_night.png";
+        return "/assets/images/icon/Few-Clouds_night.png";
         //break;
       }
 
       case "scattered clouds": {
-        return "/assets/images/icon/scattered_clouds.png";
+        return "/assets/images/icon/scattered-clouds.png";
         //break;
       }
 
       case "broken clouds": {
-        return "/assets/images/icon/broken_clouds.png";
+        return "/assets/images/icon/broken-clouds.png";
         //break;
       }
       case "shower rain": {
-        return "/assets/images/icon/shower_rain.png";
+        return "/assets/images/icon/shower-rain.png";
         //break;
       }
       case "rain": {
@@ -61,7 +61,7 @@ export class BuisnessLogicService {
       }
 
       case "shower rain": {
-        return "/assets/images/icon/shower_rain.png";
+        return "/assets/images/icon/shower-rain.png";
         //break;
       }
       case "snow": {
@@ -78,15 +78,15 @@ export class BuisnessLogicService {
         //break;
       }
       case "cleat sky night": {
-        return "/assets/images/icon/cleat_sky_night.png";
+        return "/assets/images/icon/Cleat-sky_night.png";
         //break;
       }
       case "few clouds night": {
-        return "/assets/images/icon/few-Clouds_night.png";
+        return "/assets/images/icon/Few-Clouds_night.png";
         //break;
       }
       case "rain night": {
-        return "/assets/images/icon/rain_night.png";
+        return "/assets/images/icon/Rain_night.png";
         //break;
       }
 
