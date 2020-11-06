@@ -1,0 +1,82 @@
+.content-bg {
+    background-image: url("../../../../assets/images/background-image/Bg_Image_Mobile.png");
+    background-position: bottom;
+    box-shadow: none;
+    margin-top: 0em;
+    position: absolute;
+    width: 100%;
+  }
+  .search-bar-btn{  
+    border: none;
+    color: rgb(140, 140, 140);
+    background-color: white;
+    height: 65px;
+    padding: 1em 1em;  
+  }
+  .search-bar{
+    font-size: 15px;
+    font-family: "Verdana"; 
+    width: 100%;   
+    margin-top: 15px;
+    margin-right: 35px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+  }
+  
+  input[name=search_bar_text] {
+      height: 65px;
+      width: 86.5%;
+      border: white;
+      font-size: 15px;
+      font-family: "Verdana";
+      color: rgb(140, 140, 140);
+      padding: 1em 1em;
+  }
+
+  .city-details{  
+    margin-top: 30px;
+    margin-left: 50px;
+    }
+    
+    .city-name{
+      font-size: 23px;
+      font-family: "Verdana";
+      color: white;
+      margin-bottom: 50px;
+    }
+    
+    .city-temp{
+      font-size: 53px;
+      font-family: "Verdana";
+      color: white;
+      margin-bottom: 15px;
+    }
+    
+    .city-text{
+      font-size: 14px;
+      font-family: "Verdana";
+      color: white;
+      margin-bottom: 40px;
+    }
+    
+    .city-weather{
+      font-size: 19px;
+      font-family: "Verdana";
+      font-weight: bold;
+      color: white;
+      margin-bottom: 12px;
+    }
+    
+    .city-wind{
+      font-size: 14px;
+      font-family: "Verdana";
+      color: white;
+      margin-bottom: 20px;
+    }
+    
+    .weather-Img{
+     height: 18em;
+     width:18em;
+     margin-right: 35px;
+    }
+    

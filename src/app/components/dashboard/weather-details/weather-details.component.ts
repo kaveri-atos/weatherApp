@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-weather-details',
@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherDetailsComponent implements OnInit {
 
+  @Input() userCity: string;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
+    console.log("in weather details "+this.userCity);
   }
+
+  weatherData:any;  //Store data get from CurrentWeatherDataService
+  city: string ; //city to fetch data
+  currentTemp: string; //store current Temprature
+  wind: string; //store wind data  
+  precipitation:string; //store weather precipitation
+  humidity:string; //store weather humidity  
+  stringValueEnum; //store string enum 
+
+  
+
+  /**
+ *  Reset all variable
+ */
+public resetVariable(){  
+  this.city='';
+  this.currentTemp='';
+  this.weatherData=''; 
+  this.wind='';
+  this.humidity='';  
+}
 
 }

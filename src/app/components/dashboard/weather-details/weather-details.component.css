@@ -1,0 +1,69 @@
+.weather-details-container{    
+    width: 100%;
+    margin-top: 426px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 15px;  
+    }
+    
+    .weather-title{
+    font-size: 17px;
+    font-family: "Verdana";
+    color: white;
+    background-color: #0066a1;
+    position: absolute;
+    height: 65px;     
+    width:96%;
+    }
+    .weather-details{
+        background-color: white;
+        position: absolute;
+        width: 96%;
+        height: 135px;
+        margin-top: 65px;  
+        }
+        .detail-desc-label {
+            font-size: 16px;
+            font-family: "Verdana"; 
+            text-align: center;
+            color: #0066a1;
+            }
+            .detail-data-label {
+            font-size: 23px;
+            font-family: "Verdana";
+            text-align: center;
+            color: #0066a1;
+            }
+            #sub-title{
+                font-size: 25px;
+                  font-family: "Verdana";
+                  color: white;
+                  margin-top: 10px;
+                  margin-left: 20px;
+                }
+                
+                .weather-details{
+                background-color: white;
+                position: absolute;
+                width: 96%;
+                height: 135px;
+                margin-top: 65px;  
+                }
+                
+                .icon-space{
+                  margin-right: 35px;
+                  margin-left: 120px;
+                }
+                
+                .prec-data{
+                  padding-top: 2.5em;  
+                }
+                .wind-data{
+                  padding-top: 2.5em;
+                }
+                .humi-data{
+                  padding-top: 2.5em;
+                }
+                
+
+                

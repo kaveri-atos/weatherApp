@@ -1,1 +1,57 @@
-<p>weather-details works!</p>
+<!-- weather-details-block-start-->    
+<div class="container weather-details-container" >
+    <div class="row weather-title">
+        <p id="sub-title">Details</p>
+    </div>
+
+    <div class="row weather-details justify-content-center">
+        <div class="col-4  ">
+            <div class="row prec-data">
+                <div class="icon-space">
+                    <img src="\assets\images\icon\Precipitation.png" />
+                </div>
+                <div class="data-space">
+                    <div class="detail-desc-label">
+                        <span>Precipitation  </span>
+                    </div>
+                    <div class="detail-data-label">
+                        <span>{{precipitation}}%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-4  justify-content-center">
+            <div class="row wind-data">
+                <div class="icon-space">
+                    <img src="\assets\images\icon\wind.png" />
+                </div>
+                <div class="data-space">
+                    <div class="detail-desc-label">
+                        <span id="data">Wind </span>
+                    </div>
+                    <div class="detail-data-label">
+                        <span>{{wind}}m/s</span>
+                    </div>
+                </div>  
+            </div>          
+        </div>
+
+        <div class="col-4 justify-content-center">
+            <div class="row humi-data">
+                <div class="icon-space">
+                    <img src="\assets\images\icon\humidity.png" />
+                </div>
+                <div class="data-space">
+                    <div class="detail-desc-label">
+                        <span id="data">Humidity </span>
+                    </div>
+                    <div class="detail-data-label">
+                        <span>{{humidity}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>                           
+    </div>
+</div> 
+<!--/ weather-details-block-end-->    
