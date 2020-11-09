@@ -12,7 +12,7 @@ import {RepositoryService} from '../app/_appService/repository-service.service';
 import {GetLocationLatLonService} from '../app/_appService/get-location-lat-lon.service';
 import {UserCurrentCityService} from '../app/_appService/user-current-city.service';
 import {NetworkApiService} from '../app/network-mngt/network-api.service';
-
+import {WeatherDataService} from '../app/_appService/weather-data.service';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -39,7 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RepositoryService,
     GetLocationLatLonService,
     UserCurrentCityService,
-    NetworkApiService
+    NetworkApiService,
+    WeatherDataService
   ],
   bootstrap: [AppComponent]
 })

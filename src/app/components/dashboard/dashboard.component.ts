@@ -1,50 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { GetLocationLatLonService} from '../../_appService/get-location-lat-lon.service';
 import {UserCurrentCityService} from '../../_appService/user-current-city.service';
 import {Logger} from '../../_config/app-logger';
 import {RepositoryService} from '../../_appService/repository-service.service';
-
+import {WeatherDataService} from '../../_appService/weather-data.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css']  
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('weatherCheck') weatherCheck; //Object of weather check
+  @ViewChild('weatherForecast') weatherForecast; //Object of weather check
   userCity:string; //save current user city
   logger:Logger;
   constructor(private getLocationLatLonService:GetLocationLatLonService,
     private UserCurrentCityService:UserCurrentCityService,    
-    private repositoryService:RepositoryService) { }
+    private repositoryService:RepositoryService,
+    private weatherDataService:WeatherDataService) { }
     
 
-  ngOnInit(): void {
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition((position)=>{
-    //     this.longitude = position.coords.longitude;
-    //     this.latitude = position.coords.latitude;
-    //     console.log(`in init = latitude : ${this.latitude} longitude: ${this.longitude} `);
-    //   });
-
-  //   const weatherData = this.httpClient.get("https://nominatim.openstreetmap.org/reverse?format=json&lat="+this.latitude
-  //   +"&lon="+this.longitude).toPromise().then(data => {      
-  //     return data
-  //   }, err => {
-  //     console.log(err);
-  //     return  err.statusText.toString();
-  //   });
-  //   console.log(weatherData);
-  // }
-
-   this.getLatLon();
-
+  ngOnInit(): void {   
+   this.getLatLon();   
   }
 
+  
   /**
    * Get Lat Long From GetLocationLatLonService
    */
   async getLatLon(){    
     const userLatLon= await this.getLocationLatLonService.getGeolocation();
-      
+     
     //this.logger.log("value coords "+JSON.parse(JSON.stringify(userLatLon)).lat + "lat" +JSON.parse(JSON.stringify(userLatLon)).lng);
     if(JSON.parse(JSON.stringify(userLatLon)).lat !=undefined && JSON.parse(JSON.stringify(userLatLon)).lng !=undefined) 
     {
@@ -53,10 +39,13 @@ export class DashboardComponent implements OnInit {
       Number(JSON.parse(JSON.stringify(userLatLon)).lng)
       )  
     
-      this.userCity = await this.UserCurrentCityService.getCurrentUserCity(userLocationResp);
+      this.weatherDataService.city=this.userCity = await this.UserCurrentCityService.getCurrentUserCity(userLocationResp);
+      
     }
-    
+    this.weatherCheck.getCurrentWeather(this.userCity);
+    this.weatherForecast.getForecastWeather(this.userCity);
     }
-  
 
+   
+    
 }

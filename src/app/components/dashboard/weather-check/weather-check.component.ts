@@ -1,9 +1,9 @@
 import { Component, OnInit,Input } from '@angular/core';
-import {months} from '../../../_config/app-constant';
+//mport {months} from '../../../_config/app-constant';
 import {RepositoryService} from '../../../_appService/repository-service.service';
 import {Logger} from '../../../_config/app-logger';
 import {WeatherBusinessLogicService} from './Services/weather-business-logic.service'
-
+import{WeatherDataService} from '../../../_appService/weather-data.service';
 @Component({
   selector: 'app-weather-check',
   templateUrl: './weather-check.component.html',
@@ -12,17 +12,18 @@ import {WeatherBusinessLogicService} from './Services/weather-business-logic.ser
 export class WeatherCheckComponent implements OnInit {
 private months;
 logger;
-@Input() userCity: string;
+//@Input() userCity: string;
   constructor(private repositoryAPIService:RepositoryService,
-    private buisnessLogicService:WeatherBusinessLogicService) { 
-      console.log("in weather check cons"+ this.userCity);
+    private buisnessLogicService:WeatherBusinessLogicService,
+    private weatherDataService:WeatherDataService) { 
+     // console.log("in cons"+this.userCity);
     }
 
   ngOnInit(): void {
-    this.months = months;
-   // this.logger=Logger;
-    console.log(this.months);
-    console.log("in weather check"+ this.userCity);
+  //   this.months = months;
+  //  // this.logger=Logger;
+  //   console.log(this.months);   
+  //console.log(this.userCity);
   }
 
   weatherData:any;  //Store data get from CurrentWeatherDataService
@@ -40,23 +41,20 @@ logger;
  * This function calls when click on serach button
  * @param cityName call weather api service
  */
-async getCurrentWeather(cityName:string)
-{ 
-  
-      const currentWeatherData =await this.repositoryAPIService.getCurrentWeather(cityName);
-      console.log("in weather check -"+ currentWeatherData);    
-      const str = currentWeatherData.replace(/\\/g, '');
-      console.log(JSON.parse(JSON.stringify(str)));
+async getCurrentWeather(cityName:string){ 
+    
+      const currentWeatherData =await this.repositoryAPIService.getCurrentWeather(cityName);       
       var currentWeatherValueAfterParse = this.buisnessLogicService.getCurrentDayValue(JSON.parse(JSON.stringify(currentWeatherData)));
    //   this.logger.log("filter data"+ currentWeatherValueAfterParse);  
           this.city_details_show = false; //show deatis div
           this.city = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).city;
           this.currentTemp = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).currentTemp;
           this.currentWeatherDesc = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).weather;
-          this.wind = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).wind;
-          this.humidity = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).humidity;
+          this.weatherDataService.wind =this.wind = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).wind;
+          this.weatherDataService.humidity =this.humidity = JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).humidity;
           this.currentWeatherIcon=JSON.parse(JSON.stringify(currentWeatherValueAfterParse)).currentWeatherIcon;
-  
+          
+       
   }
 
   /**
@@ -65,6 +63,36 @@ async getCurrentWeather(cityName:string)
   onClickLocation(){
     //this.getLatLon(); 
   }
+
+set userCity(value:string)
+{
+  this.weatherDataService.city= value;
+}
+
+get userCity():string
+{
+  return this.weatherDataService.city;
+}
+
+// set setCity(value:string)
+// {
+//   this.weatherDataService.city= value;
+// }
+// get getCity():string
+// {
+//   return this.weatherDataService.city;
+// }
+
+// set setCity(value:string)
+// {
+//   this.weatherDataService.city= value;
+// }
+// get getCity():string
+// {
+//   return this.weatherDataService.city;
+// }
+
+
 
 
 

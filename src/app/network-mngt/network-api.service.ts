@@ -16,7 +16,6 @@ export class NetworkApiService {
       console.log(err);
       return  err.statusText.toString();
     });
-    console.log("in netwoek api -- "+ JSON.stringify(weatherData));
     return JSON.stringify(weatherData);
 
     }

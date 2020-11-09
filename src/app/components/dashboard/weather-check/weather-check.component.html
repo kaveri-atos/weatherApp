@@ -2,9 +2,9 @@
 <div class="content-bg justify-content-center">
     <div class="row search-bar">
         <div class="col-12">
-            <input type="text" [(ngModel)]="inputFromSearchBox"  name="search_bar_text" placeholder="Search Location" (keyup.enter)="getCurrentWeather(inputFromSearchBox)"/>
+            <input type="text" [(ngModel)]="userCity"  name="search_bar_text" placeholder="Search Location" (keyup.enter)="getCurrentWeather(userCity)"/>
                     
-            <button class="search-bar-btn" type="button" (click)="getCurrentWeather(inputFromSearchBox)">
+            <button class="search-bar-btn" type="button" (click)="getCurrentWeather(userCity)">
              <img src="\assets\images\icon\Search.png" alt="search" name="search-icon"></button>
         
              <button class="search-bar-btn" type="button" (click)="onClickLocation()">

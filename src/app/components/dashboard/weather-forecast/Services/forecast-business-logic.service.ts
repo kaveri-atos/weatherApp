@@ -183,10 +183,12 @@ export class ForecastBusinessLogicService {
  */
   public getNoOfDays(fiveDaysValue){
     var weatherDate = [];
+    console.log(fiveDaysValue);
+    debugger;
     for (let i = 0; i < JSON.parse(fiveDaysValue).list.length; i++) {
-      this.logger.log(JSON.parse(fiveDaysValue).list[i]);
+      //this.logger.log(JSON.parse(fiveDaysValue).list[i]);
       var weatherDateAfterAplit = (JSON.parse(fiveDaysValue).list[i].dt_txt).split(" ")[0];   
-      weatherDate.indexOf(weatherDateAfterAplit) === -1 ? weatherDate.push(weatherDateAfterAplit) : this.logger.log('');
+      weatherDate.indexOf(weatherDateAfterAplit) === -1 ? weatherDate.push(weatherDateAfterAplit) : console.log('');
     }
     return weatherDate;
   }
@@ -243,7 +245,7 @@ public getFiveDaysValueInFormat(weatherDate,fiveDaysValue){
   var totlReturn=[];
         /////// getHigh Log Temp Of Each Day /////
         for (let i = 0; i < weatherDate.length; i++) {
-          this.logger.log(weatherDate[i]);
+         // this.logger.log(weatherDate[i]);
 
           var heigh = 0;
           var low = 0;

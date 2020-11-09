@@ -23,7 +23,7 @@ export class RepositoryService {
     * @returns JSON Object or 'Error'
     */
    async getCurrentWeather(cityName:string){   
-    const weatherData = await this.networkAPI.get(this.stringEnum.URLCurrent +"q="+ cityName+"&appid="+this.stringEnum.AppID + "&units=metric");
+    const weatherData = await this.networkAPI.get(this.stringEnum.URLCurrent + cityName+"&appid="+this.stringEnum.AppID + "&units=metric");
     return weatherData;
   }
  
@@ -33,7 +33,7 @@ export class RepositoryService {
  * @returns JSON Object or 'Error'
  */
 async getWeatherValueFiveDays(cityName:string) {  
-  const weatherData = await this.networkAPI.get(this.stringEnum.URLCurrent +"q="+ cityName+"&appid="+this.stringEnum.AppID + "&units=metric");
+  const weatherData = await this.networkAPI.get(this.stringEnum.URLForcast + cityName+"&appid="+this.stringEnum.AppID + "&units=metric");
   return weatherData;
 }
 

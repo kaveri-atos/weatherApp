@@ -5,6 +5,7 @@
     margin-top: 200px;
     margin-left: 35px;
     margin-right: 35px;
+    position: absolute;
     /* //margin-bottom: 15px;   */
     }
     
@@ -13,17 +14,17 @@
     font-family: "Verdana";
     color: white;
     background-color: #0066a1;
-    position: absolute;
+    position: relative; /*swati*/
     height: 65px;     
     width:96%;
     }
     
     .forecast-details{
     background-color: white;
-    position: absolute;
+    position: relative; /*swati*/
     width: 96%;
-    height: 120px;
-    margin-top: 65px;  
+    /*height: 120px; /*swati*/
+    /*margin-top: 65px;   */ /*swati*/
     }
     
     .daily-data{
@@ -35,7 +36,7 @@
     position: absolute;
     width: 96%; 
     height: 105px;
-    margin-top: 11.5em;  
+    /*margin-top: 11.5em;  */ /*swati*/
     }
     
     .graph-bg {

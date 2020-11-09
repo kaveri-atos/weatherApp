@@ -1,38 +1,32 @@
 import { Component, OnInit,Input } from '@angular/core';
-
+import {WeatherDataService} from '../../../_appService/weather-data.service';
 @Component({
   selector: 'app-weather-details',
   templateUrl: './weather-details.component.html',
   styleUrls: ['./weather-details.component.css']
 })
-export class WeatherDetailsComponent implements OnInit {
-
-  @Input() userCity: string;
-  constructor() { }
-
-  ngOnInit(): void {   
-    console.log("in weather details "+this.userCity);
+export class WeatherDetailsComponent implements OnInit {  
+  constructor(private weatherDataService:WeatherDataService) {     
   }
 
-  weatherData:any;  //Store data get from CurrentWeatherDataService
-  city: string ; //city to fetch data
-  currentTemp: string; //store current Temprature
-  wind: string; //store wind data  
-  precipitation:string; //store weather precipitation
-  humidity:string; //store weather humidity  
-  stringValueEnum; //store string enum 
-
+  ngOnInit(): void {}
   
 
-  /**
- *  Reset all variable
- */
-public resetVariable(){  
-  this.city='';
-  this.currentTemp='';
-  this.weatherData=''; 
-  this.wind='';
-  this.humidity='';  
-}
+
+  get precipitation():string
+  {
+   return this.weatherDataService.precipitation;
+  }
+
+  get humidity():string
+  {
+   return this.weatherDataService.humidity;
+  }
+  get wind():string
+  {
+   return this.weatherDataService.wind;
+  }
+
+ 
 
 }
