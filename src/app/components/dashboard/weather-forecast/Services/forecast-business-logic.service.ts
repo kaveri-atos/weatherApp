@@ -15,6 +15,7 @@ export class ForecastBusinessLogicService {
   constructor() { 
     this.stringEnum=StringValueEnum;
     this.url=this.stringEnum.WEATHERICONURL;
+    this.logger=new Logger();
   }
 
 
@@ -182,13 +183,11 @@ export class ForecastBusinessLogicService {
  *  @returns Occurance of date
  */
   public getNoOfDays(fiveDaysValue){
-    var weatherDate = [];
-    console.log(fiveDaysValue);
-    debugger;
+    var weatherDate = [];      
     for (let i = 0; i < JSON.parse(fiveDaysValue).list.length; i++) {
       //this.logger.log(JSON.parse(fiveDaysValue).list[i]);
       var weatherDateAfterAplit = (JSON.parse(fiveDaysValue).list[i].dt_txt).split(" ")[0];   
-      weatherDate.indexOf(weatherDateAfterAplit) === -1 ? weatherDate.push(weatherDateAfterAplit) : console.log('');
+      weatherDate.indexOf(weatherDateAfterAplit) === -1 ? weatherDate.push(weatherDateAfterAplit) : this.logger.log('');
     }
     return weatherDate;
   }

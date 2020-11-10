@@ -17,7 +17,9 @@ export class DashboardComponent implements OnInit {
   constructor(private getLocationLatLonService:GetLocationLatLonService,
     private UserCurrentCityService:UserCurrentCityService,    
     private repositoryService:RepositoryService,
-    private weatherDataService:WeatherDataService) { }
+    private weatherDataService:WeatherDataService) {
+      this.logger=new Logger();
+    }
     
 
   ngOnInit(): void {   
@@ -28,13 +30,14 @@ export class DashboardComponent implements OnInit {
   /**
    * Get Lat Long From GetLocationLatLonService
    */
-  async getLatLon(){    
+  async getLatLon(){  
+    this.logger.log('get latlon call');  
     const userLatLon= await this.getLocationLatLonService.getGeolocation();
      
-    //this.logger.log("value coords "+JSON.parse(JSON.stringify(userLatLon)).lat + "lat" +JSON.parse(JSON.stringify(userLatLon)).lng);
+    this.logger.log("value coords in dashboard "+JSON.parse(JSON.stringify(userLatLon)).lat + "lat" +JSON.parse(JSON.stringify(userLatLon)).lng);
     if(JSON.parse(JSON.stringify(userLatLon)).lat !=undefined && JSON.parse(JSON.stringify(userLatLon)).lng !=undefined) 
     {
-      const userLocationResp = await this.repositoryService.getCurrentWeatherByLatLon(
+      const userLocationResp = await this.repositoryService.getLocationByLatLon(
       Number(JSON.parse(JSON.stringify(userLatLon)).lat),
       Number(JSON.parse(JSON.stringify(userLatLon)).lng)
       )  

@@ -10,7 +10,7 @@ export class RepositoryService {
   stringEnum; //enum const object
   apidata;
   url:string; //url for image whitch is fetch from server
-  //networkAPI; //NetworkAPI object
+  
 
   constructor(private networkAPI:NetworkApiService) {
     this.stringEnum=StringValueEnum;    
@@ -40,9 +40,9 @@ async getWeatherValueFiveDays(cityName:string) {
 /**
  * 
  * @param lat 
- * @param lon 
+ * @param lon  //return city name 
  */
-async getCurrentWeatherByLatLon(lat:number , lon:number){   
+async getLocationByLatLon(lat:number , lon:number){   
   const weatherData = await this.networkAPI.get(this.stringEnum.URLUserLocation + lat +"&lon=" + lon); 
     return weatherData;  
 }

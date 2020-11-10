@@ -12,21 +12,37 @@ export class WeatherDetailsComponent implements OnInit {
   ngOnInit(): void {}
   
 
-
+ /**
+  * get  precipitation value from WeatherDataService
+  */
   get precipitation():string
   {
    return this.weatherDataService.precipitation;
   }
 
+  /**
+  * get  humidity value from WeatherDataService
+  */
   get humidity():string
   {
    return this.weatherDataService.humidity;
   }
+
+  /**
+  * get  wind value from WeatherDataService
+  */
   get wind():string
   {
    return this.weatherDataService.wind;
   }
 
+  /**
+  * get  isWeatherData value from WeatherDataService to hide or show div
+  */
+  get isWeatherData():boolean
+  {
+   return this.weatherDataService.isWeatherData;
+  }
  
 
 }

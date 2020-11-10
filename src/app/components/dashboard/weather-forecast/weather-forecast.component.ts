@@ -5,6 +5,7 @@ import { OverLapGraphForWeatherPredictionService } from './Services/over-lap-gra
 import { Logger } from '../../../_config/app-logger';
 import { ForecastBusinessLogicService } from './Services/forecast-business-logic.service';
 import { StringValueEnum } from '../../../_config/string-value-enum.enum';
+import {WeatherDataService} from '../../../_appService/weather-data.service';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -18,13 +19,20 @@ export class WeatherForecastComponent implements OnInit {
   monthNames;
   constructor(private repositoryAPIService: RepositoryService,
     private overlapGraphService: OverLapGraphForWeatherPredictionService,
-    private buisnessLogicService: ForecastBusinessLogicService) {
-    this.logger = new Logger();
-    this.stringValueEnum = StringValueEnum;
+    private buisnessLogicService: ForecastBusinessLogicService,
+    private weatherDataService:WeatherDataService) {
+    this.logger = new Logger(); //logger object
+    this.stringValueEnum = StringValueEnum; //constant string object
   }
 
   ngOnInit(): void {
-    console.log("in weather details " + this.userCity);
+    this.logger.log("in weather details " + this.userCity);
+    if (this.weatherDataService.subsVar==undefined) {    
+      this.weatherDataService.subsVar = this.weatherDataService.    
+      invokeForecastDataFun.subscribe((city:string) => {    
+        this.getForecastWeather(city);    
+      });    
+    }    
   }
 
   city: string; //city to fetch data
@@ -66,8 +74,8 @@ export class WeatherForecastComponent implements OnInit {
   async getForecastWeather(cityName: string) {
   
     const fiveDaysValue = await this.repositoryAPIService.getWeatherValueFiveDays(cityName);
-    console.log(fiveDaysValue)
-    //this.logger.log(this.stringValueEnum.UnknownError);
+    
+    this.logger.log(this.stringValueEnum.UnknownError);
     if (JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError || JSON.parse(fiveDaysValue) == this.stringValueEnum.NotFound) {
 
       //(JSON.parse(fiveDaysValue) == this.stringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.stringValueEnum.PleaseCheckNetworkConnection)
@@ -76,8 +84,7 @@ export class WeatherForecastComponent implements OnInit {
 
     }
     else {
-      /// Insert Date into this.mDate Array
-      
+      /// Insert Date into this.mDate Array     
 
       this.weatherDate = this.buisnessLogicService.getNoOfDays(fiveDaysValue);
       this.dateForGraphRenderOnly = this.buisnessLogicService.formatDateForDateAndMonth(this.weatherDate);
@@ -94,7 +101,7 @@ export class WeatherForecastComponent implements OnInit {
       this.dateTempMin = getResultAfterFormating[1];
       this.fiveDaysWeatherIcon = getResultAfterFormating[2];
 
-      //this.logger.log("Graph Calling");
+      this.logger.log("Graph Calling");
       this.maxTempof5DaysToGrphLimit = Math.max(...this.dateTempMax) + this.graphMaxMinFromTempDelta;
       this.minTempof5DaysToraphLimit = Math.min(...this.dateTempMin) - this.graphMaxMinFromTempDelta;
 
@@ -114,7 +121,7 @@ export class WeatherForecastComponent implements OnInit {
         '', 'rgba(15,148,225)', this.minTempof5DaysToraphLimit,
         this.maxTempof5DaysToGrphLimit);
 
-      //this.logger.log(Math.max(...this.dateTempMax) + "   " + Math.min(...this.dateTempMin))
+      this.logger.log(Math.max(...this.dateTempMax) + "   " + Math.min(...this.dateTempMin))
 
 
 
@@ -123,7 +130,10 @@ export class WeatherForecastComponent implements OnInit {
 
   }
 
-
+  get isWeatherData():boolean
+  {
+   return this.weatherDataService.isWeatherData;
+  }
 
   /**
    *  Reset all variable
