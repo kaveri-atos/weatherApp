@@ -66,4 +66,52 @@
                 }
                 
 
-                
+   /* city details block for mobile screen start */
+  @media screen and (max-width: 1024px) {
+  
+      .weather-details-container{
+        width: 100%;      
+        margin: 450px 0px !important;  
+        }      
+        
+      .weather-title{
+        font-size: 15px;  
+        height: 50px;  
+        width: 100%;      
+      }
+  
+      .weather-details{      
+        height: 140px;
+        margin-top: 50px;
+        width: 100%;     
+        }
+        
+        .prec-data{
+          margin-left: 40px; 
+          margin-top: 0px;
+        }
+        .wind-data{
+          margin-left: 20px; 
+        }
+        .humi-data{
+          margin-left: 20px; 
+        }      
+       
+        .icon-space{        
+          margin-bottom: 15px;
+          margin-left: 10px;
+        }
+  
+        .icon-space img {
+          height: 40px;
+        }
+        .detail-desc-label {
+        font-size: 12px;
+        }
+        .detail-data-label {
+        font-size: 20px;
+        margin-bottom: 100px;
+        }
+  
+  
+  }              
