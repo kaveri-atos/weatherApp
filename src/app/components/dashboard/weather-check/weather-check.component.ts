@@ -42,7 +42,7 @@ logger;
  * @param cityName call weather api service
  */
 async getCurrentWeather(cityName:string){ 
-    
+      this.weatherDataService.isLoadData = false;     //show spinner
       const currentWeatherData =await this.repositoryAPIService.getCurrentWeather(cityName);      
       this.logger.log("in weather check "+ currentWeatherData);
        
@@ -77,6 +77,7 @@ async getCurrentWeather(cityName:string){
  * get current weather data using users location coords
  */
   onClickLocation(){
+    this.weatherDataService.isLoadData = false;     
     this.logger.log("onClickLocation call");    
     this.dashboardParent.emit(); //emit parent function
   }
@@ -110,6 +111,12 @@ get wind():string
 {
  return this.weatherDataService.wind;
 }
+
+get isLoadData():boolean
+{
+ return this.weatherDataService.isLoadData;
+}
+
 
   /**
  *  Reset all variable

@@ -12,6 +12,7 @@ export class WeatherDataService {
   humidity:string; //store humidity data from current weather
   precipitation="0"; //store humidity precipitation from current weather
   isWeatherData:boolean //store if data is fetch from griven city or not
+  isLoadData:boolean = false //show spinner till data will not fetch
   invokeForecastDataFun = new EventEmitter();    
   subsVar: Subscription;   
 
