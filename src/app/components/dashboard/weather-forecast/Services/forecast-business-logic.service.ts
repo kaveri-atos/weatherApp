@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {StringValueEnum} from '../../../../_config/string-value-enum.enum';
 import {Logger} from '../../../../_config/app-logger';
+import {dayNames,months} from '../../../../_config/app-constant';
 @Injectable({
   providedIn: 'root'
 })
 export class ForecastBusinessLogicService {  
   stringEnum; // Enum class object
   logger:Logger; //logger object
-  
+ 
   /**
  * Declare url for image fetch from server
  */
@@ -198,8 +199,8 @@ export class ForecastBusinessLogicService {
  * @returns Day of Week
  */
 public getDayOfWeek(dateInDay){
-  var formatedDate=[];
- var dayNames = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var formatedDate=[]; 
+ var days = dayNames;
  formatedDate.push("Today");
  let k=dateInDay+1;
  //let k = new Date();
@@ -208,7 +209,7 @@ public getDayOfWeek(dateInDay){
           k=0;
       }
       else{
-        formatedDate.push(dayNames[k++]);
+        formatedDate.push(days[k++]);
       }
   } 
 
@@ -222,8 +223,7 @@ return formatedDate;
  */
 public formatDateForDateAndMonth(weatherDate){
   var mFormatedDate=[];
-  var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+  var monthNames = months;
   for (let i = 0; i < weatherDate.length; i++) {
   mFormatedDate.push(weatherDate[i].split("-")[2]+" "+monthNames[parseInt(weatherDate[i].split("-")[1])-1]);
   }

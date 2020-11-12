@@ -16,7 +16,7 @@ export class GetLocationLatLonService {
      */
     async getGeolocation():Promise<any> {     
        return new Promise((resolve, reject) => {
-        window.navigator.geolocation.watchPosition(resp => {
+        window.navigator.geolocation.getCurrentPosition(resp => {
                this.logger.log("In service lat :"+resp.coords.latitude + "  long" +resp.coords.longitude);
           resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});          
         },

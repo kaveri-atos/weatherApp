@@ -1,4 +1,18 @@
+/* day and date wise forecast details styles */
 
+.forecast-day-label{
+font-size: 13px;
+font-family: "Verdana";
+font-weight: bold;
+color: #0066a1;
+margin-top: 25px;
+margin-bottom: 25px;
+margin-left: 20px;
+} 
+
+.forecast-icon-label{
+  margin-left: 40px;
+}
 .forecast-details-container{
     /* //margin: 12.5em 1em 1em 1.8em; */
     width: 100%;
@@ -6,7 +20,7 @@
     margin-left: 25px;
     margin-right: 25px;
     position: absolute;
-    /* //margin-bottom: 15px;   */
+    margin-bottom: 15px;  
     }
 
     #sub-title{
@@ -32,19 +46,19 @@
     background-color: white;
     position: relative; /*swati*/
     width: 96%;
-    /*height: 120px; /*swati*/
+    height: 120px; /*swati*/
     /*margin-top: 65px;   */ /*swati*/
     }
-    
+/*     
     .daily-data{
     padding-top: 2em;
     }
-    
+     */
     .forecast-graph{
     background-color: rgb(15, 148, 225);
     position: absolute;
     width: 96%; 
-    height: 105px;
+    height: 106px;
     /*margin-top: 11.5em;  */ /*swati*/
     }
     
@@ -52,6 +66,7 @@
       height: 75px;
       z-index: 0;
       top: 10px;
+      width:100%;
     }
     .max-point {
       width: 100%;
@@ -59,6 +74,8 @@
       position: absolute;
       z-index: 1;
       top: 10px;
+      padding-left: 10px;
+      padding-right: 20px;
     }
     .min-point {
       width: 100%;
@@ -66,6 +83,8 @@
       position: absolute;
       z-index: 2;
       top: 10px;
+      padding-left: 10px;
+      padding-right: 20px;
     }
     
     .graph-container {

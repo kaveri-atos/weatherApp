@@ -23,6 +23,7 @@ export class WeatherForecastComponent implements OnInit {
     private weatherDataService:WeatherDataService) {
     this.logger = new Logger(); //logger object
     this.stringValueEnum = StringValueEnum; //constant string object
+    this.dateInDay = new Date().getDay(); //get today day names
   }
 
   ngOnInit(): void {
@@ -46,7 +47,7 @@ export class WeatherForecastComponent implements OnInit {
   maxTempof5DaysToGrphLimit = 0; //Store 5 days Min Temperature
   minTempof5DaysToraphLimit = 0; //Store Min Temperature in next 5 days
   graphMaxMinFromTempDelta = 7; //Value of delta for graph for resizing
-  days = dayNames //Store static value for vwetical scroll
+  days = dayNames //Store days names;
   dateInDay = 0;  //Today In Date Count
   lineChartMax: any;
   lineChartMin: any; //Min Chart Graph
@@ -84,11 +85,12 @@ export class WeatherForecastComponent implements OnInit {
 
     }
     else {
-      /// Insert Date into this.mDate Array     
+
+        /// Insert Date into this.mDate Array     
 
       this.weatherDate = this.buisnessLogicService.getNoOfDays(fiveDaysValue);
       this.dateForGraphRenderOnly = this.buisnessLogicService.formatDateForDateAndMonth(this.weatherDate);
-      this.dateForGraphRenderOnly = this.buisnessLogicService.getDayOfWeek(this.dateInDay);
+      this.dateNameForGraphRenderOnly= this.buisnessLogicService.getDayOfWeek(this.dateInDay);
 
       this.dateForGraphRenderOnly = []
       var monthNames = months;
